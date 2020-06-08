@@ -1,5 +1,5 @@
 # Stream-51
-The Stream-51 dataset for streaming classification and novelty detection from videos.
+The Stream-51 dataset for streaming classification and novelty detection from videos. [Paper link](http://openaccess.thecvf.com/content_CVPRW_2020/papers/w15/Roady_Stream-51_Streaming_Classification_and_Novelty_Detection_From_Videos_CVPRW_2020_paper.pdf)
 
 ## Training Protocol
 ![Stream-51](./repo_images/Stream_protocol.png)
@@ -11,9 +11,10 @@ The Stream-51 protocol poses unique challenges, requiring agents to learn from t
 ## Citation
 If using this code, please cite our paper.
 ```
-@inproceedings{roady2020stream-51,
-  title={Stream-51: Streaming Classification and Novelty Detection from Videos},
-  author={Roady, Ryne and Hayes, Tyler L and Vaidya, Hitesh and Kanan, Christopher},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops},
-  year={2020}
+@InProceedings{Roady_2020_Stream51,
+author = {Roady, Ryne and Hayes, Tyler L. and Vaidya, Hitesh and Kanan, Christopher},
+title = {Stream-51: Streaming Classification and Novelty Detection From Videos},
+booktitle = {The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+month = {June},
+year = {2020}
 }
