@@ -16,7 +16,7 @@ You can Download the dataset here: [Stream-51](https://drive.google.com/file/d/1
 For training PyTorch models we have provided a sample dataset class and dataloader function in the `StreamDataset.py` file above. The StreamDataset class allows specifying one of the baseline orderings ('iid', 'class_iid", 'instance', or 'class_instance') for organizing the dataset according to the desired streaming learning paradigm.
 
 ## Experiments
-We have included in the experiments folder python scripts for training our offline and streaming models used for establishing baseline performance.  Within this folder are bash scripts for running training either our offline or streaming models.  
+We have included python scripts in the experiments folder for training the offline and streaming models used for establishing baseline performance.  Within this folder are bash scripts to set the appropriate variables for training either offline or streaming models with our dataset.  
 
 ## Citation
 If using this code, please cite our paper.
