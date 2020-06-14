@@ -93,7 +93,7 @@ def main():
     parser.add_argument('--model', type=str, default='slda',
                         choices=['slda', 'exstream', 'no_buffer', 'no_buffer_full'])
     parser.add_argument('--num_inc', type=int, default=6)
-    parser.add_argument('--seeds', type=str, default = '10, 20, 30')
+    parser.add_argument('--seeds', type=str, default = '10,20,30')
     args = parser.parse_args()
     
     print('Summary Statistics:')

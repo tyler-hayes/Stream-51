@@ -37,3 +37,9 @@ do
 		--slda_ood_type ${OOD_TYPE} | tee logs/${EXPT_NAME}.log
 	done
 done
+
+python -u get_average_results.py \
+--results_dir ./results \
+--model ${MODEL} \
+--num_inc 6 \
+--seeds 10,20,30
