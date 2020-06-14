@@ -60,7 +60,7 @@ def compute_omega_instance(root, model='slda', num_inc=6, seeds=[10, 20, 30]):
         (mu_top1, std_top1) = get_results(root, folder, seeds, num_inc, 'instance')
         results_dict[m] = [mu_top1, std_top1]
 
-    omega_top1 = np.mean(results_dict[model][0][0] / results_dict['offline'][0][0])
+    omega_top1 = np.mean(results_dict[model][0] / results_dict['offline'][0])
     print('\n', model)
     print('\tOmega Top-1: ', omega_top1)
 
