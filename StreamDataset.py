@@ -2,7 +2,7 @@ import os
 import os.path
 import random
 
-import pickle
+import json
 from PIL import Image
 import numpy as np
 import torch.utils.data as data
@@ -37,9 +37,9 @@ def instance_ordering(data_list, seed):
 def class_ordering(data_list, class_type, seed):
     # organize by class
     new_data_list = []
-    class_vids = []
-    class_vids_len = []
-    hist_data = {}
+    # class_vids = []
+    # class_vids_len = []
+    # hist_data = {}
     for class_id in range(data_list[-1][0] + 1):
         class_data_list = [x for x in data_list if x[0] == class_id]
         if class_type == 'class_iid':
@@ -83,33 +83,35 @@ def make_dataset(data_list, ordering='class_instance', seed=666):
 
 
 class StreamDataset(data.Dataset):
-    """A generic data loader where the samples are arranged in this way: ::
-
-        root/class_x/xxx.ext
-        root/class_x/xxy.ext
-        root/class_x/xxz.ext
-
-        root/class_y/123.ext
-        root/class_y/nsdf3.ext
-        root/class_y/asd932_.ext
+    """Stream-51 Dataset Object
 
     Args:
-        root (string): Root directory path.
-        transform (callable, optional): A function/transform that takes in
+        root (string): Root directory path of dataset.
+        train (bool): load either training set (True) or test set (False) (default: True)
+        ordering (string): desired ordering for training dataset: 'instance', 
+            'class_instance', 'iid', or 'class_iid' (ignored for test dataset)
+            (default: None)
+        transform: A function/transform that takes in
             a sample and returns a transformed version.
             E.g, ``transforms.RandomCrop`` for images.
-        target_transform (callable, optional): A function/transform that takes
+        target_transform: A function/transform that takes
             in the target and transforms it.
-
+        bbox_crop: crop images to object bounding box (default: True)
+        ratio: padding for bbox crop (default: 1.10)
+        seed: random seed for shuffling classes or instances (default=10)
      Attributes:
         samples (list): List of (sample path, class_index) tuples
         targets (list): The class_index value for each image in the dataset
     """
 
-    def __init__(self, root, pickle_file, ordering=None, transform=None, target_transform=None, bbox_crop=True,
-                 ratio=1.10, seed=666):
+    def __init__(self, root, train=True, ordering=None, transform=None, target_transform=None, bbox_crop=True,
+                 ratio=1.10, seed=10):
 
-        data_list = pickle.load(open(pickle_file, 'rb'))
+        if train:
+            data_list = json.load(open(os.path.join(root,'Stream-51_train.json')))
+        else:
+            data_list = json.load(open(os.path.join(root,'Stream-51_test.json')))
+
         samples = make_dataset(data_list, ordering, seed=seed)
 
         self.root = root
@@ -178,53 +180,3 @@ def pil_loader(path):
 
 def default_loader(path):
     return pil_loader(path)
-
-def filter_by_class(labels, seen_classes):
-    ixs = []
-    for c in seen_classes:
-        i = list(np.where(labels == c)[0])
-        ixs += i
-    return ixs
-
-def get_stream60_data_loader(images_dir, pickle_prefix, training, ordering=None, batch_size=128, shuffle=False,
-                             augment=False, num_workers=8, seen_classes=None, seed=200, ix=None):
-    if training:
-        split = 'train'
-    else:
-        split = 'test'
-
-    # resize to 224, send to tensor, then normalize with standard imagenet normalization
-    normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-
-    if training and augment:
-        transform = transforms.Compose([
-            transforms.Resize((224, 224)),
-            transforms.RandomHorizontalFlip(),
-            transforms.ToTensor(),
-            normalize
-        ])
-    else:
-        transform = transforms.Compose([
-            transforms.Resize((224, 224)),
-            transforms.ToTensor(),
-            normalize
-        ])
-
-    dataset = StreamDataset(images_dir, images_dir + '/' + pickle_prefix + split + '_ssd.pkl',
-                            ordering=ordering, transform=transform, bbox_crop=True, ratio=1.10, seed=seed)
-    labels = np.array([t for t in dataset.targets])
-
-    if seen_classes is not None:
-        indices = filter_by_class(labels, seen_classes)
-        sub = Subset(dataset, indices)
-        loader = DataLoader(sub, batch_size=batch_size, num_workers=num_workers,
-                            pin_memory=True, shuffle=shuffle)
-    elif ix is not None:
-        sub = Subset(dataset, ix)
-        loader = DataLoader(sub, batch_size=batch_size, num_workers=num_workers,
-                            pin_memory=True, shuffle=shuffle)
-    else:
-        loader = DataLoader(dataset, batch_size=batch_size, num_workers=num_workers,
-                            pin_memory=True, shuffle=shuffle)
-
-    return loader

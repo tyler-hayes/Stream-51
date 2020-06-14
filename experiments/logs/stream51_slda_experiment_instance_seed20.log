@@ -1,0 +1,90 @@
+Arguments {
+    "ckpt_file": "./checkpoints/resnet18_places365.pth.tar",
+    "dataset": "stream51",
+    "expt_name": "stream51_slda_experiment_instance_seed20",
+    "images_dir": "../",
+    "k_plus_one_tpr": 0.95,
+    "model": "slda",
+    "num_channels": 512,
+    "num_classes": 51,
+    "ood_num_samples": 500,
+    "ood_only_51": false,
+    "order": "instance",
+    "save_dir": "./results/stream51_slda_experiment_instance_seed20",
+    "seed": 20,
+    "slda_ood_type": "baseline",
+    "step": 30000
+}
+Changing output layer to contain 51 classes.
+Will not resume any checkpoints!
+Resuming from ./checkpoints/resnet18_places365.pth.tar
+Shape mismatch...ignoring model.fc.weight
+Shape mismatch...ignoring model.fc.bias
+eval_ix  [ 30000  60000  90000 120000 150000 150736]
+Beginning streaming training...
+Making test loader from following:  [38, 15, 47, 13, 42, 23, 43, 41, 19, 24, 21, 45, 34, 16, 48, 20, 28, 30, 8, 14, 31, 18, 12, 2, 35, 46, 25, 6, 36, 37, 9, 7, 50, 39, 17, 0, 1, 49, 32, 40, 5, 3, 44, 33, 11, 4, 29, 27, 26, 10]
+Num OOD samples  500
+Making in-loader from these classes:  [38, 15, 47, 13, 42, 23, 43, 41, 19, 24, 21, 45, 34, 16, 48, 20, 28, 30, 8, 14, 31, 18, 12, 2, 35, 46, 25, 6, 36, 37, 9, 7, 50, 39, 17, 0, 1, 49, 32, 40, 5, 3, 44, 33, 11, 4, 29, 27, 26, 10]
+Inloader made from 50 classes (500 samples)
+Inloader made from 50 classes (500 samples)
+Outloader made from 2 classes (500 samples)
+
+Index: 30000 -- top1=45.57% -- top5=63.18%
+Threshold K+1: 0.70
+
+OOD: AUROC=0.60 -- AUOSC=0.32 -- AUOSC Norm=0.70 -- K+1 Acc=0.26
+Making test loader from following:  [38, 15, 47, 13, 42, 23, 43, 41, 19, 24, 21, 45, 34, 16, 48, 20, 28, 30, 8, 14, 31, 18, 12, 2, 35, 46, 25, 6, 36, 37, 9, 7, 50, 39, 17, 0, 1, 49, 32, 40, 5, 3, 44, 33, 11, 4, 29, 27, 26, 10, 22]
+Num OOD samples  500
+Making in-loader from these classes:  [38, 15, 47, 13, 42, 23, 43, 41, 19, 24, 21, 45, 34, 16, 48, 20, 28, 30, 8, 14, 31, 18, 12, 2, 35, 46, 25, 6, 36, 37, 9, 7, 50, 39, 17, 0, 1, 49, 32, 40, 5, 3, 44, 33, 11, 4, 29, 27, 26, 10, 22]
+Inloader made from 51 classes (500 samples)
+Inloader made from 51 classes (500 samples)
+Outloader made from 1 classes (500 samples)
+
+Index: 60000 -- top1=53.69% -- top5=76.47%
+Threshold K+1: 0.65
+
+OOD: AUROC=0.65 -- AUOSC=0.33 -- AUOSC Norm=0.59 -- K+1 Acc=0.32
+Making test loader from following:  [38, 15, 47, 13, 42, 23, 43, 41, 19, 24, 21, 45, 34, 16, 48, 20, 28, 30, 8, 14, 31, 18, 12, 2, 35, 46, 25, 6, 36, 37, 9, 7, 50, 39, 17, 0, 1, 49, 32, 40, 5, 3, 44, 33, 11, 4, 29, 27, 26, 10, 22]
+Num OOD samples  500
+Making in-loader from these classes:  [38, 15, 47, 13, 42, 23, 43, 41, 19, 24, 21, 45, 34, 16, 48, 20, 28, 30, 8, 14, 31, 18, 12, 2, 35, 46, 25, 6, 36, 37, 9, 7, 50, 39, 17, 0, 1, 49, 32, 40, 5, 3, 44, 33, 11, 4, 29, 27, 26, 10, 22]
+Inloader made from 51 classes (500 samples)
+Inloader made from 51 classes (500 samples)
+Outloader made from 1 classes (500 samples)
+
+Index: 90000 -- top1=58.71% -- top5=81.76%
+Threshold K+1: 0.66
+
+OOD: AUROC=0.65 -- AUOSC=0.44 -- AUOSC Norm=0.75 -- K+1 Acc=0.34
+Making test loader from following:  [38, 15, 47, 13, 42, 23, 43, 41, 19, 24, 21, 45, 34, 16, 48, 20, 28, 30, 8, 14, 31, 18, 12, 2, 35, 46, 25, 6, 36, 37, 9, 7, 50, 39, 17, 0, 1, 49, 32, 40, 5, 3, 44, 33, 11, 4, 29, 27, 26, 10, 22]
+Num OOD samples  500
+Making in-loader from these classes:  [38, 15, 47, 13, 42, 23, 43, 41, 19, 24, 21, 45, 34, 16, 48, 20, 28, 30, 8, 14, 31, 18, 12, 2, 35, 46, 25, 6, 36, 37, 9, 7, 50, 39, 17, 0, 1, 49, 32, 40, 5, 3, 44, 33, 11, 4, 29, 27, 26, 10, 22]
+Inloader made from 51 classes (500 samples)
+Inloader made from 51 classes (500 samples)
+Outloader made from 1 classes (500 samples)
+
+Index: 120000 -- top1=62.24% -- top5=84.67%
+Threshold K+1: 0.61
+
+OOD: AUROC=0.66 -- AUOSC=0.48 -- AUOSC Norm=0.75 -- K+1 Acc=0.37
+Making test loader from following:  [38, 15, 47, 13, 42, 23, 43, 41, 19, 24, 21, 45, 34, 16, 48, 20, 28, 30, 8, 14, 31, 18, 12, 2, 35, 46, 25, 6, 36, 37, 9, 7, 50, 39, 17, 0, 1, 49, 32, 40, 5, 3, 44, 33, 11, 4, 29, 27, 26, 10, 22]
+Num OOD samples  500
+Making in-loader from these classes:  [38, 15, 47, 13, 42, 23, 43, 41, 19, 24, 21, 45, 34, 16, 48, 20, 28, 30, 8, 14, 31, 18, 12, 2, 35, 46, 25, 6, 36, 37, 9, 7, 50, 39, 17, 0, 1, 49, 32, 40, 5, 3, 44, 33, 11, 4, 29, 27, 26, 10, 22]
+Inloader made from 51 classes (500 samples)
+Inloader made from 51 classes (500 samples)
+Outloader made from 1 classes (500 samples)
+
+Index: 150000 -- top1=63.49% -- top5=86.27%
+Threshold K+1: 0.58
+
+OOD: AUROC=0.68 -- AUOSC=0.45 -- AUOSC Norm=0.69 -- K+1 Acc=0.37
+Making test loader from following:  [38, 15, 47, 13, 42, 23, 43, 41, 19, 24, 21, 45, 34, 16, 48, 20, 28, 30, 8, 14, 31, 18, 12, 2, 35, 46, 25, 6, 36, 37, 9, 7, 50, 39, 17, 0, 1, 49, 32, 40, 5, 3, 44, 33, 11, 4, 29, 27, 26, 10, 22]
+Num OOD samples  500
+Making in-loader from these classes:  [38, 15, 47, 13, 42, 23, 43, 41, 19, 24, 21, 45, 34, 16, 48, 20, 28, 30, 8, 14, 31, 18, 12, 2, 35, 46, 25, 6, 36, 37, 9, 7, 50, 39, 17, 0, 1, 49, 32, 40, 5, 3, 44, 33, 11, 4, 29, 27, 26, 10, 22]
+Inloader made from 51 classes (500 samples)
+Inloader made from 51 classes (500 samples)
+Outloader made from 1 classes (500 samples)
+
+Index: 150736 -- top1=63.25% -- top5=86.24%
+Threshold K+1: 0.62
+
+OOD: AUROC=0.68 -- AUOSC=0.49 -- AUOSC Norm=0.77 -- K+1 Acc=0.39

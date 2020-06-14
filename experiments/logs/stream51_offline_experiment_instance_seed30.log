@@ -1,0 +1,27 @@
+Arguments {
+    "augment": false,
+    "batch_size": 256,
+    "ckpt_file": "./experiments/checkpoints/resnet18_places365.pth.tar",
+    "dataset": "stream60",
+    "expt_name": "stream51_offline_experiment_instance_seed30",
+    "full_rehearsal": false,
+    "images_dir": "./",
+    "init_lr": 0.01,
+    "k_plus_one_tpr": 0.95,
+    "milestones": [
+        15,
+        30
+    ],
+    "num_channels": 512,
+    "num_classes": 51,
+    "num_epochs": 10,
+    "ood_num_samples": 500,
+    "ood_only_51": false,
+    "order": "instance",
+    "save_dir": "./experiments/stream51_offline_experiment_instance_seed30",
+    "seed": 30,
+    "step": 10,
+    "use_feature_extractor": false,
+    "use_imagenet_weights": false,
+    "weight_decay": 0.0001
+}
