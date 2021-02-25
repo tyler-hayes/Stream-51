@@ -7,7 +7,7 @@ The Stream-51 dataset for streaming classification and novelty detection from vi
 The Stream-51 protocol poses unique challenges, requiring agents to learn from temporally correlated datastreams and recognize unlearned concepts as novel. Training data can be ordered either just by instance or by both class and instance. Evaluation data includes a set of novel examples from classes unseen during training.  The baselines established in our paper were from the instance and class instance ordering with random ordering establshed by three seperate seeds.  We have listed the exact training and evaluation orderings for each ordering/seed in the orderings folder.
 
 ## Dataset
-You can Download the dataset here: [Stream-51](https://drive.google.com/file/d/15huZ756N2cp1CCO4HxF-MVDsMx1LMoIn/view?usp=sharing)
+You can Download the dataset here: [Stream-51](https://drive.google.com/file/d/1MeZ4d0VgBFmogxHvewMRQQOmBLIiJsoG/view?usp=sharing)
 
 ## Dependences 
 - Tested with Python 3.6 and PyTorch 1.1.0, or Python 3.7 and PyTorch 1.3.1, NumPy, NVIDIA GPU
