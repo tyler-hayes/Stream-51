@@ -108,9 +108,9 @@ class StreamDataset(data.Dataset):
                  ratio=1.10, seed=10):
 
         if train:
-            data_list = json.load(open(os.path.join(root,'Stream-51_train.json')))
+            data_list = json.load(open(os.path.join(root,'Stream-51_meta_train.json')))
         else:
-            data_list = json.load(open(os.path.join(root,'Stream-51_test.json')))
+            data_list = json.load(open(os.path.join(root,'Stream-51_meta_test.json')))
 
         samples = make_dataset(data_list, ordering, seed=seed)
 
