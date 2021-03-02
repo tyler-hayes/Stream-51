@@ -1,6 +1,8 @@
 # Stream-51
 The Stream-51 dataset for streaming classification and novelty detection from videos. A link to our full paper is included [here](http://openaccess.thecvf.com/content_CVPRW_2020/html/w15/Roady_Stream-51_Streaming_Classification_and_Novelty_Detection_From_Videos_CVPRW_2020_paper.html) and our project webpage can be found [here](https://tyler-hayes.github.io/stream51).
 
+The Stream-51 dataset and associated evaluation scenarios are also integrated with the [Avalanche framework](https://github.com/ContinualAI/avalanche) :snowflake:! Check it out!
+
 ## Training Protocol
 ![Stream-51](./repo_images/Stream_protocol.png)
 
